@@ -56,7 +56,7 @@ public with sharing class ClassesObjectsMethods {
         List<String> stringData = new List<String>();
 
         // In the first position add the string length
-        stringData.add(String.valueOf(lengthofString));
+        stringData.add(String.valueOf(myLength));
 
         // In the second position add the substring
         stringData.add(mySubstring);
@@ -112,9 +112,11 @@ public with sharing class ClassesObjectsMethods {
         for (String word : words){
             uniqueWords.add(word);
         }
+        //Convert the set back to a list because the following String.join method will require a list as the first argument, not a set
+        List<String> uniqueWordsList = new List<String>(uniqueWords);
 
         // Join the unique words back into a sentence
-        String uniqueSentence = String.join(uniqueWords, ' ');
+        String uniqueSentence = String.join(uniqueWordsList, ' ');
 
         // Return the sentence with unique words
         return uniqueSentence; 
@@ -252,13 +254,13 @@ public with sharing class ClassesObjectsMethods {
         };
 
         // Get the day name using .format('EEEE');
-        String.dayName = dt.format('EEEE');
+        String dayName = dt.format('EEEE');
 
         // Get the day number from the map using the day name
         Integer dayNumber = dayMap.get(dayName);
 
         // Return the result as a string
-        return dayNumber;
+        return String.valueOf(dayNumber);
     }
 
 
@@ -397,7 +399,7 @@ public with sharing class ClassesObjectsMethods {
 
         // Setter method that sets the name of the person
         public void setName(String name){
-            this.name;
+            this.name = name;
         }
 
         // Setter method that sets the age of the person
@@ -417,11 +419,7 @@ public with sharing class ClassesObjectsMethods {
         List<String> results = new List<String>();
 
         // Create a new instance of Person class
-        Person person = new Person();
-
-        // Name the person 'John Doe' and set the age to 28
-        person.name = 'John Doe';
-        person.age = 28;
+        Person person = new Person('John Doe', 28);
 
         // Add the details of the person using the introduceYourself method
         results.add(person.introduceYourself());
