@@ -167,9 +167,9 @@ public with sharing class ClassesObjectsMethods {
         for (String name : scientistNames){
 
             // If the name doesn't contain the letter 'G', skip this iteration
-            if (name.contains ('g')){
-            // Add the name to the result string, followed by a comma
-            result += name + ',';
+            if (name.toLowerCase().contains ('g')) {
+                // Concatenate the name to the result string
+                result += name + ',';
             }
         }
 
@@ -179,7 +179,6 @@ public with sharing class ClassesObjectsMethods {
         }
 
         return result;
-        //I assumed no case sensitivity between G and g
     }
 
     /**
@@ -386,7 +385,7 @@ public with sharing class ClassesObjectsMethods {
     
         // Method introduceYourself that returns the details of the person 
         public String introduceYourself(){
-            return 'Hello, my name is ' + name + ' and I am ' + age + ' Years old.';
+            return 'Hello, my name is ' + name + ' and I am ' + age + ' years old.';
         }       
         // Getter method that returns the name of the person
         public String getName(){
